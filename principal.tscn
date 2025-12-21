@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgsgby0h3awc1"]
+
+[ext_resource type="PackedScene" uid="uid://bmqmvrfl1kcro" path="res://cenario_grama.tscn" id="1_tr6oq"]
+[ext_resource type="PackedScene" uid="uid://b4wtpo2pnx47t" path="res://fazendeira.tscn" id="2_m7tbw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7tbw"]
+size = Vector2(81, 61)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7tbw"]
+radius = 15.0
+height = 48.0
+
+[node name="principal" type="Node2D"]
+
+[node name="cenario_grama" parent="." instance=ExtResource("1_tr6oq")]
+
+[node name="fazendeira" parent="cenario_grama" instance=ExtResource("2_m7tbw")]
+z_index = 1
+position = Vector2(540, 315)
+
+[node name="CollisionShape2D" parent="cenario_grama/fazendeira" index="1"]
+position = Vector2(0.875, 11.625)
+
+[node name="Camera2D" type="Camera2D" parent="cenario_grama/fazendeira"]
+position = Vector2(0, -20)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="colisões" type="StaticBody2D" parent="."]
+
+[node name="Col_casa" type="CollisionShape2D" parent="colisões"]
+visible = false
+position = Vector2(547.5, 228.5)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_m7tbw")
+
+[node name="Col_Cerca" type="CollisionPolygon2D" parent="colisões"]
+polygon = PackedVector2Array(352, 256, 353, 351, 477, 351, 479, 321, 472, 322, 472, 339, 360, 339, 361, 304, 361, 269, 473, 270, 473, 288, 479, 287, 479, 257)
+
+[node name="Col_arvore" type="CollisionShape2D" parent="colisões"]
+position = Vector2(622, 247)
+shape = SubResource("CapsuleShape2D_m7tbw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colisões"]
+polygon = PackedVector2Array(366, 283, 366, 337, 467, 338, 465, 283)
+
+[editable path="cenario_grama/fazendeira"]
