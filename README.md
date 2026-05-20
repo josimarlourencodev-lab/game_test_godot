@@ -8,7 +8,7 @@
 
 ## ✨ Visão geral
 
-O **GameTask Godot** é um projeto experimental criado com um objetivo direto:  
+O **GameTest Godot** é um projeto experimental criado com um objetivo direto:  
 **aprender fazendo.**
 
 A ideia foi desenvolver um pequeno protótipo funcional — simples, mas suficiente para entender como um jogo começa a tomar forma dentro da engine.
